@@ -22,7 +22,7 @@ void tokenize(string const&, vector<string>&);
 
 int main()
 {
-    const int maxScore = 10;
+    const int MAX_SCORE = 10;
 
     ifstream inputFile;
     inputFile.open("..\\inputs.txt", ios::in);
@@ -96,11 +96,11 @@ int main()
                 if (answer == studentResult)
                 {
                     questionsCorrect++;
-                    cout << "Input #" << to_string(iterations) << " is correct." << endl;
+                    cout << "Output #" << to_string(iterations) << " is correct." << endl;
                 }
                 else
                 {
-                    cout << "Input #" << to_string(iterations) << " is incorrect." << endl;
+                    cout << "Output #" << to_string(iterations) << " is incorrect." << endl;
                 }
 
                 iterations++;
@@ -112,12 +112,12 @@ int main()
 
         cout << endl << to_string(questionsCorrect) << "/" << to_string(iterations - 1) << " correct." << endl;
 
-        float score = (float)questionsCorrect / (iterations - 1) * maxScore;
+        float score = (float)questionsCorrect / (iterations - 1) * MAX_SCORE;
         stringstream stream;
         stream << fixed << setprecision(1) << score;
         string sscore = stream.str();
 
-        cout << sscore << "/" << to_string(maxScore) << " points scored." << endl;
+        cout << sscore << "/" << to_string(MAX_SCORE) << " points scored." << endl;
     }
     else
     {
