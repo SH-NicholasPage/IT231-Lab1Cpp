@@ -8,6 +8,7 @@
 
 #pragma warning(disable: 6386)
 
+#include <iomanip>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -21,6 +22,8 @@ void tokenize(string const&, vector<string>&);
 
 int main()
 {
+    const int maxScore = 10;
+
     ifstream inputFile;
     inputFile.open("..\\inputs.txt", ios::in);
 
@@ -108,7 +111,13 @@ int main()
         inputFile.close();
 
         cout << endl << to_string(questionsCorrect) << "/" << to_string(iterations - 1) << " correct." << endl;
-        cout << to_string(questionsCorrect * 2) << "/" << to_string((iterations - 1) * 2) << " points scored." << endl;
+
+        float score = (float)questionsCorrect / (iterations - 1) * maxScore;
+        stringstream stream;
+        stream << fixed << setprecision(1) << score;
+        string sscore = stream.str();
+
+        cout << sscore << "/" << to_string(maxScore) << " points scored." << endl;
     }
     else
     {
