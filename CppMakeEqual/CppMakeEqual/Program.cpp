@@ -27,6 +27,11 @@ int main()
     ifstream inputFile;
     inputFile.open("..\\inputs.txt", ios::in);
 
+    if(inputFile.is_open() == false)//Try different path
+    {
+        inputFile.open("inputs.txt", ios::in);
+    }
+
     if (inputFile.is_open() == true)
     {
         unsigned char iterations = 1;
